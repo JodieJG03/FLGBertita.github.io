@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!--
+    ⚙️ Coloca este archivo como index.html en la rama y carpeta que usa GitHub Pages.
+    Repo → Settings → Pages → Source: main / (root)
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GitHub Pages • OK</title>
+  <meta name="description" content="Página de verificación rápida para GitHub Pages." />
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #22c55e;
+      --border: #1f2937;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: radial-gradient(1200px 800px at 50% -10%, #111827 0%, #0b0f17 60%, #0b0f17 100%);
+      color: var(--text);
+      font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: 100%;
+      max-width: 640px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 28px 22px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
+      text-align: center;
+    }
+    .ok {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
+      font-weight: 700;
+      font-size: clamp(22px, 4vw, 28px);
+      letter-spacing: 0.2px;
+    }
+    .ok svg { width: 28px; height: 28px; flex: none; }
+    .host {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+      word-break: break-all;
+    }
+    .pill {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer {
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    a { color: #93c5fd; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-live="polite">
+    <div class="ok" id="status">
+      <!-- Check icon -->
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-opacity="0.35" stroke-width="1.25"/>
+        <path d="M7 12.5l3 3 7-7" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>GitHub Pages está funcionando ✅</span>
+    </div>
+
+    <p class="host" id="hostline">Comprobando host…</p>
+    <div class="pill" id="buildinfo">Compilado: —</div>
+
+    <footer>
+      Si ves el ✅ y tu dominio aquí arriba, tu GitHub Pages está activo.<br/>
+      <span id="tip"></span>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      const host = location.hostname || "localhost";
+      const path = location.pathname;
+      const hostLine = document.getElementById("hostline");
+      const tip = document.getElementById("tip");
+      const build = document.getElementById("buildinfo");
+
+      // Marca de “build time” (momento de publicación)
+      const now = new Date();
+      build.textContent = "Compilado: " + now.toLocaleString();
+
+      // Mensaje de host
+      hostLine.textContent = "Servido desde: " + host + (path ? " • Ruta: " + path : "");
+
+      // Consejito útil
+      const isGitHub = /\.github\.io$/.test(host);
+      tip.innerHTML = isGitHub
+        ? "Origen típico: <strong>main</strong> / <strong>root</strong> (Configura en <em>Settings → Pages</em>)."
+        : "Si usas dominio personalizado, recuerda configurar el DNS (CNAME/ALIAS) y el archivo <strong>CNAME</strong> en el repo.";
+
+      // Accesibilidad: anunciar éxito
+      const status = document.getElementById("status");
+      status.setAttribute("aria-label", "GitHub Pages funcionando");
+    })();
+  </script>
+</body>
+</html>
