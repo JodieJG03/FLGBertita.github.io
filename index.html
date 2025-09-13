@@ -1,103 +1,447 @@
 <!doctype html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8">
-  <title>Menú 18 de Septiembre</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Tahoma, sans-serif;
-      background: linear-gradient(180deg, #fff 0%, #fff 33%, #0039a6 33%, #0039a6 66%, #d52b1e 66%);
-      color: #111;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin: 0.5em 0;
-    }
-    .menu {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      width: 100%;
-      max-width: 900px;
-    }
-    .item {
-      background: rgba(255,255,255,0.85);
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease;
-    }
-    .item:hover {
-      transform: scale(1.05);
-    }
-    .item h2 {
-      margin-top: 10px;
-      font-size: 1.4rem;
-      color: #0039a6;
-    }
-    .item p {
-      font-size: 0.95rem;
-      color: #333;
-    }
-    footer {
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: #222;
-    }
-    img {
-      width: 100%;
-      max-width: 150px;
-      border-radius: 8px;
-    }
-  </style>
+    <meta charset="utf-8">
+    <title>Carta "La Grandiosa Bertita" – 18 de Septiembre 🇨🇱</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --rojo: #d52b1e;
+            --azul: #0039a6;
+            --blanco: #ffffff;
+            --bg: #0b0f17;
+            --card: #101826;
+            --text: #e6eaf2;
+            --muted: #aab1bd;
+            --border: #1c2433;
+            --shadow: 0 12px 28px rgba(0, 0, 0, .35);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            background: #ffffff;
+            /* fondo blanco */
+            color: var(--text);
+            font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            padding: 20px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 4px solid #0039a6;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: clamp(22px, 4.5vw, 36px);
+            color: #0b0f17;
+            text-shadow: 0 1px 0 #fff8;
+        }
+
+        /* Banderines */
+        .banderines {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+            gap: 4px;
+        }
+
+        .banderin {
+            width: 25px;
+            height: 35px;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+        }
+
+        .rojo {
+            background: #d52b1e;
+        }
+
+        .blanco {
+            background: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .azul {
+            background: #0039a6;
+        }
+
+        .card {
+            margin: 30px auto;
+            max-width: 1000px;
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid #eee;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        header p {
+            margin: 6px 0 0;
+            color: #0b0f17;
+            font-weight: 600
+        }
+
+        .card {
+            width: 100%;
+            max-width: 1100px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.907), rgba(255, 255, 255, .02));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: clamp(18px, 3.2vw, 24px);
+            color: #0039a6;
+            /* azul */
+        }
+
+        .ribbon {
+            height: 8px;
+            border-radius: 999px;
+            background:
+                linear-gradient(90deg, var(--rojo) 0% 33%, var(--blanco) 33% 66%, var(--azul) 66% 100%);
+            margin: 6px 0 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: #96b3cbb3;
+        }
+
+        thead th {
+            text-align: left;
+            padding: 12px;
+            background: #00388c;
+            color: #fff7f7;
+            font-weight: 700;
+            position: sticky;
+            top: 0;
+        }
+
+        tbody td {
+            padding: 10px 12px;
+            border-top: 1px solid var(--border);
+            vertical-align: middle;
+            color: #050606;
+        }
+
+        tbody tr:hover {
+            background: #969a9f
+        }
+
+        .imgcell {
+            width: 64px;
+            text-align: center
+        }
+
+        .emoji {
+            font-size: 28px;
+            line-height: 1
+        }
+
+        .price {
+            font-weight: 700;
+            white-space: nowrap
+        }
+
+        .note {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 8px
+        }
+
+        .grid {
+            display: grid;
+            gap: 18px
+        }
+
+        @media (min-width:900px) {
+            .grid {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        footer {
+            color: var(--muted);
+            font-size: 12px;
+            text-align: center;
+            padding: 6px
+        }
+
+        /* Modo impresión */
+        @media print {
+            body {
+                background: #151313;
+                color: #000
+            }
+
+            header {
+                box-shadow: none
+            }
+
+            .card {
+                box-shadow: none
+            }
+
+            table {
+                background: #fff;
+                border-color: #ddd
+            }
+
+            thead th {
+                background: #f2f5ff;
+                color: #272121;
+                position: static
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <h1>🇨🇱 Menú Fiestas Patrias 🇨🇱</h1>
-    <p>Sabores típicos para celebrar el 18 de septiembre en Chile</p>
-  </header>
+    <header>
+        <div class="banderines">
+            <div class="banderin rojo"></div>
+            <div class="banderin blanco"></div>
+            <div class="banderin azul"></div>
+            <div class="banderin rojo"></div>
+            <div class="banderin blanco"></div>
+            <div class="banderin azul"></div>
+        </div>
 
-  <main class="menu">
-    <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Empanada_chilena_de_pino.jpg/320px-Empanada_chilena_de_pino.jpg" alt="Empanada de Pino">
-      <h2>Empanada de Pino</h2>
-      <p>La reina de las fondas, rellena de carne, cebolla, aceituna y huevo duro.</p>
-    </div>
-    <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Anticucho.jpg/320px-Anticucho.jpg" alt="Anticucho">
-      <h2>Anticuchos</h2>
-      <p>Brochetas a la parrilla con carne, longaniza, cebolla y pimiento.</p>
-    </div>
-    <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Choripan.jpg/320px-Choripan.jpg" alt="Choripán">
-      <h2>Choripán</h2>
-      <p>Clásico pan con chorizo a la parrilla, ideal con pebre bien picante.</p>
-    </div>
-    <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Terremoto_coctel.jpg/320px-Terremoto_coctel.jpg" alt="Terremoto">
-      <h2>Terremoto</h2>
-      <p>Bebida típica: pipeño, helado de piña y un toque de granadina.</p>
-    </div>
-    <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Mote_con_huesillo.jpg/320px-Mote_con_huesillo.jpg" alt="Mote con Huesillos">
-      <h2>Mote con Huesillos</h2>
-      <p>Refrescante postre-bebida de mote de trigo y duraznos secos en almíbar.</p>
-    </div>
-  </main>
+        <h1>🍷 Carta "La Grandiosa Bertita" 🍽️</h1>
+        <p>Fiestas Patrias – 18 de Septiembre</p>
 
-  <footer>
-    © 2025 – Fiestas Patrias en Chile 🎉
-  </footer>
+        <div class="banderines">
+            <div class="banderin azul"></div>
+            <div class="banderin blanco"></div>
+            <div class="banderin rojo"></div>
+            <div class="banderin azul"></div>
+            <div class="banderin blanco"></div>
+            <div class="banderin rojo"></div>
+        </div>
+    </header>
+
+
+   <div class="card">
+        <div class="ribbon" aria-hidden="true"></div>
+        <div class="grid">
+            <!-- ====== BEBESTIBLES ====== -->
+            <section>
+                <h2>🥤 Bebestibles</h2>
+                <table aria-label="Tabla de bebestibles">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="imgcell"><span class="emoji" aria-hidden="true">🥤</span></td>
+                            <td>Bebidas</td>
+                            <td class="price">$3.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🚰</span></td>
+                            <td>Agua</td>
+                            <td class="price">$2.500</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🧃</span></td>
+                            <td>Jugo</td>
+                            <td class="price">$4.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">⚡</span></td>
+                            <td>Energética</td>
+                            <td class="price">$4.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍺</span></td>
+                            <td>Cerveza</td>
+                            <td class="price">$4.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🥤</span></td>
+                            <td>Terremoto</td>
+                            <td class="price">$5.500</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🧒🥤</span></td>
+                            <td>Terremoto niño</td>
+                            <td class="price">$4.500</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🥃</span></td>
+                            <td>Vaso chicha</td>
+                            <td class="price">$3.500</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍺🍋</span></td>
+                            <td>Michelada</td>
+                            <td class="price">$5.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🥃</span></td>
+                            <td>Vaso Piscola</td>
+                            <td class="price">$10.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🥃</span></td>
+                            <td>Vaso Whiscola</td>
+                            <td class="price">$11.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍶</span></td>
+                            <td>Chicha</td>
+                            <td class="price">$15.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍾</span></td>
+                            <td>Vino ventisquero blanco</td>
+                            <td class="price">$20.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍷</span></td>
+                            <td>Vino ventisquero tinto</td>
+                            <td class="price">$20.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🥃➕🥤x4</span></td>
+                            <td>Pisco + 4 bebidas</td>
+                            <td class="price">$50.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🥃➕🥤x4</span></td>
+                            <td>Whisky + 4 bebidas</td>
+                            <td class="price">$70.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ====== COMESTIBLES ====== -->
+            <section>
+                <h2>🍽️ Comestibles</h2>
+                <table aria-label="Tabla de comestibles">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🥟</span></td>
+                            <td>Empanada</td>
+                            <td class="price">$5.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🌭</span></td>
+                            <td>Choripán</td>
+                            <td class="price">$5.500</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍢</span></td>
+                            <td>Anticucho de cerdo</td>
+                            <td class="price">$7.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍢</span></td>
+                            <td>Anticucho de vacuno</td>
+                            <td class="price">$10.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🩸</span></td>
+                            <td>Prieta con agregado</td>
+                            <td class="price">$10.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍗</span></td>
+                            <td>Pollo con agregado</td>
+                            <td class="price">$15.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🥩</span></td>
+                            <td>Chuletas con agregado</td>
+                            <td class="price">$15.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🥩</span></td>
+                            <td>Vacuno Huachalomo con agregado</td>
+                            <td class="price">$20.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍖</span></td>
+                            <td>Costillar con agregado</td>
+                            <td class="price">$20.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍳</span></td>
+                            <td>Chorrillana</td>
+                            <td class="price">$20.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🥩🍽️</span></td>
+                            <td>Parrilla al plato 4p</td>
+                            <td class="price">$60.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍟</span></td>
+                            <td>Salchipapas</td>
+                            <td class="price">$15.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍟</span></td>
+                            <td>Papas fritas grandes</td>
+                            <td class="price">$10.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🍗🍟</span></td>
+                            <td>7 nuggets con papas</td>
+                            <td class="price">$10.000</td>
+                        </tr>
+                        <tr>
+                            <td class="imgcell"><span class="emoji">🥗</span></td>
+                            <td>Ensalada</td>
+                            <td class="price">$3.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        Carta con temática patria • Imprime esta página desde tu navegador si necesitas versión física.
+    </footer>
 </body>
+
 </html>
